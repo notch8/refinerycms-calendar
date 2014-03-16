@@ -6,12 +6,10 @@ module Refinery
 
       translates :title, :excerpt, :description
       class Translation
-        attr_accessible :locale
       end
       acts_as_indexed :fields => [:title, :excerpt, :description]
 
 
-      attr_accessible :image_id
       belongs_to :image, :class_name => '::Refinery::Image'
 
       friendly_id :title, :use => :slugged
@@ -21,10 +19,6 @@ module Refinery
 
 
       validates :title, :presence => true, :uniqueness => true
-
-      attr_accessible :title, :from, :to, :registration_link,
-                      :venue_id, :category_ids, :excerpt, :description,
-                      :featured, :position
 
       alias_attribute :from, :starts_at
       alias_attribute :to, :ends_at
