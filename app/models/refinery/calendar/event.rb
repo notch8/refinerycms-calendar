@@ -2,11 +2,6 @@ module Refinery
   module Calendar
     class Event < Refinery::Core::BaseModel
       extend FriendlyId
-
-
-      translates :title, :excerpt, :description
-      class Translation
-      end
       acts_as_indexed :fields => [:title, :excerpt, :description]
 
 
